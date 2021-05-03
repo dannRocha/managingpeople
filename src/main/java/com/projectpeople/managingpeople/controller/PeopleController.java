@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/people")
-public class PersonController {
+public class PeopleController {
 
   @GetMapping
   public List<String> getPeople() {
