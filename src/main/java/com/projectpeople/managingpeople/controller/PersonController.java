@@ -13,7 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import javax.validation.Valid;
+
+
 import com.projectpeople.managingpeople.dto.response.MessageResponseDTO;
+import com.projectpeople.managingpeople.dto.request.PersonDTO;
 import com.projectpeople.managingpeople.entity.Person;
 import com.projectpeople.managingpeople.repository.PersonRepository;
 import com.projectpeople.managingpeople.service.PersonService;
@@ -32,8 +37,8 @@ public class PersonController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public MessageResponseDTO createPerson(@RequestBody Person person) {
-    return personService.createPerson(person);
+  public MessageResponseDTO createPerson(@RequestBody @Valid PersonDTO personDTO) {
+    return personService.createPerson(personDTO);
   }
 
   @GetMapping
