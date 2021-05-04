@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 
 
 import com.projectpeople.managingpeople.dto.response.MessageResponseDTO;
+import com.projectpeople.managingpeople.dto.request.PersonDTO;
 import com.projectpeople.managingpeople.entity.Person;
+import com.projectpeople.managingpeople.mappers.PersonMapper;
 import com.projectpeople.managingpeople.repository.PersonRepository;
  
  
@@ -14,15 +16,18 @@ public class PersonService {
   
   private PersonRepository personRepository;
 
+  private final PersonMapper personMapper = PersonMapper.INSTANCE;
+  
   @Autowired
   public PersonService(PersonRepository personRepository) {
     this.personRepository = personRepository;
   }
 
 
-  public MessageResponseDTO createPerson(Person person) {
-     
-    Person savedPerson = personRepository.save(person);
+  public MessageResponseDTO createPerson(PersonDTO personDTO) {
+    
+    Person personToSave = personMapper.toModel(personDTO);
+    Person savedPerson = personRepository.save(personToSave);
 
     return MessageResponseDTO
       .builder()
