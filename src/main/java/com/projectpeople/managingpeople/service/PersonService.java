@@ -1,5 +1,6 @@
 package com.projectpeople.managingpeople.service;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,10 +8,13 @@ import org.springframework.stereotype.Service;
 import com.projectpeople.managingpeople.dto.response.MessageResponseDTO;
 import com.projectpeople.managingpeople.dto.request.PersonDTO;
 import com.projectpeople.managingpeople.entity.Person;
+import com.projectpeople.managingpeople.exception.PersonNotFoundException;
 import com.projectpeople.managingpeople.mappers.PersonMapper;
 import com.projectpeople.managingpeople.repository.PersonRepository;
  
+
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
  
@@ -45,5 +49,15 @@ public class PersonService {
       .stream()
       .map(personMapper::toDTO)
       .collect(Collectors.toList());
+  }
+
+
+  public PersonDTO findById(Long id) throws PersonNotFoundException {
+    return personMapper
+      .toDTO(
+        personRepository
+          .findById(id)
+          .orElseThrow(() -> new PersonNotFoundException(id))
+      );
   }
 }

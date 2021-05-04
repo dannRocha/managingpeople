@@ -3,6 +3,7 @@ package com.projectpeople.managingpeople.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import javax.validation.Valid;
 import com.projectpeople.managingpeople.dto.response.MessageResponseDTO;
 import com.projectpeople.managingpeople.dto.request.PersonDTO;
 import com.projectpeople.managingpeople.entity.Person;
+import com.projectpeople.managingpeople.exception.PersonNotFoundException;
 import com.projectpeople.managingpeople.repository.PersonRepository;
 import com.projectpeople.managingpeople.service.PersonService;
 
@@ -42,5 +44,10 @@ public class PersonController {
   @ResponseStatus(HttpStatus.OK)
   public List<PersonDTO> listAll() {
     return personService.listAll();
+  }
+
+  @GetMapping("{id}")
+  public PersonDTO findById(@PathVariable Long id) throws PersonNotFoundException {
+    return personService.findById(id);
   }
 }
