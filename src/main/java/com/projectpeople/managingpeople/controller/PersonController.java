@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import java.util.ArrayList;
 import java.util.List;
-
-
 import javax.validation.Valid;
 
 
@@ -42,12 +39,8 @@ public class PersonController {
   }
 
   @GetMapping
-  public List<String> getPeople() {
-    // return personRepository
-    //   .findAll()
-    //   .stream()
-    //   .map(mangaMapper::toDTO)
-    //   .collect(Collectors.toList());
-    return new ArrayList<String>();
+  @ResponseStatus(HttpStatus.OK)
+  public List<PersonDTO> listAll() {
+    return personService.listAll();
   }
 }
