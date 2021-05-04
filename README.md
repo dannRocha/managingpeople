@@ -108,7 +108,7 @@ curl -d '{
       "number": "+5598981111111"
     }
   ]
-}' -H "Content-Type: application/json" -X POST http://localhost:8080/api/v1/mangas/
+}' -H "Content-Type: application/json" -X POST http://localhost:8080/api/v1/people/
 ```
 
 #### DELETE
