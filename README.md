@@ -1,9 +1,11 @@
 # Managing People
 
 ## Ferramentas
- - Gradle 6.8.3
- - Java 11
- - Git 2.30.2
+ 
+  * :pushpin: *![gradle@6.8+](https://img.shields.io/badge/Gradle@6.8+-%230077B6.svg?&style=flat-square&logo=gradle&logoColor=white&color=02303a&labelColor=66dcb8)*
+  * :pushpin: *![java@11.0+](https://img.shields.io/badge/Java@11.0+-%230077B6.svg?&style=flat-square&logo=java&logoColor=white&color=1d6074&labelColor=e46901)*
+  * :pushpin: *![git@2.30+](https://img.shields.io/badge/Git@2.30+-%230077B6.svg?&style=flat-square&logo=git&logoColor=white&color=3f2f00&labelColor=e94e31)*
+
 
 ## Execução
 Clone o projeto
