@@ -8,11 +8,11 @@
 
 
 ## Execução
-Clone o projeto
+Clone o projeto:
 ```
 git clone https://github.com/dannRocha/managingpeople.git
 ```
-Entrando da pasta do projeto execute o comando no terminal
+Entrando na pasta do projeto execute o comando no terminal:
 
 ```sh
 ./gradlew bootRun
