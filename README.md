@@ -1,4 +1,4 @@
-# Manganing People
+# Managing People
 
 ## Ferramentas
  - Gradle 6.8.3
