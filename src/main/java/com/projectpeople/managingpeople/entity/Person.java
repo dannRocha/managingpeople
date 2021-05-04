@@ -8,9 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
 
 
 import lombok.AllArgsConstructor;
@@ -18,10 +15,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+
+import java.time.LocalDate;
 import java.util.List;
 
+
 import com.projectpeople.managingpeople.entity.Phone;
+
 
 @Entity
 @Data
@@ -43,9 +43,9 @@ public class Person {
   @Column(nullable = false, unique = true)
   private String cpf;
 
-  @Temporal(TemporalType.DATE)
-  @Column
-  private Date birthDay;
+  
+  @Column(nullable = false)
+  private LocalDate birthDay;
 
   @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
   private List<Phone> phones;
